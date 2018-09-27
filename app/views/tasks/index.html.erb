@@ -1,3 +1,5 @@
+<!--ログインしているユーザ -->
+<%if logged_in?%>
 <h1>タスク一覧</h1>
 
 <%if @tasks.any?%>
@@ -22,4 +24,12 @@
 <div>
 <%= paginate @tasks %>
 </div>
+<%end%>
+
+<!--ログインしていないユーザ-->
+<%else%>
+  <div class="text-center">
+    <h1>Tasklist</h1>
+    <%=link_to "サインアップ", signup_path, class:"btn btn-lg btn-primary"%>
+  </div>
 <%end%>
